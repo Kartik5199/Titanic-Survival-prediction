@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: url('/static/titanic_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 bg-white/20 backdrop-blur-md rounded-xl shadow-2xl transform transition hover:scale-105">
+        <h1 class="text-3xl font-bold text-center text-white mb-6"> Titanic Survival Prediction</h1>
+        <form action="/predict" method="post" class="space-y-4">
+            <label class="block text-white">Passenger Class (1/2/3):</label>
+            <input type="number" name="pclass" required class="w-full p-3 border rounded-lg bg-white/80 text-black shadow-sm hover:shadow-md transition">
+
+            <label class="block text-white">Sex:</label>
+            <div class="flex space-x-6 text-white">
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="sex" value="male" checked class="accent-blue-500"> 
+                    <span>Male</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="sex" value="female" class="accent-pink-500"> 
+                    <span>Female</span>
+                </label>
+            </div>
+
+            <label class="block text-white">Age:</label>
+            <input type="number" step="0.1" name="age" required class="w-full p-3 border rounded-lg bg-white/80 text-black shadow-sm hover:shadow-md transition">
+
+            <label class="block text-white">Siblings/Spouses Aboard:</label>
+            <input type="number" name="sibsp" required class="w-full p-3 border rounded-lg bg-white/80 text-black shadow-sm hover:shadow-md transition">
+
+            <label class="block text-white">Parents/Children Aboard:</label>
+            <input type="number" name="parch" required class="w-full p-3 border rounded-lg bg-white/80 text-black shadow-sm hover:shadow-md transition">
+
+            <label class="block text-white">Fare:</label>
+            <input type="number" step="0.1" name="fare" required class="w-full p-3 border rounded-lg bg-white/80 text-black shadow-sm hover:shadow-md transition">
+
+            <label class="block text-white">Port of Embarkation:</label>
+            <div class="flex space-x-4 text-white">
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="embarked" value="S" checked class="accent-yellow-500"> 
+                    <span>Southampton</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="embarked" value="Q" class="accent-green-500"> 
+                    <span>Queenstown</span>
+                </label>
+                <label class="flex items-center space-x-2">
+                    <input type="radio" name="embarked" value="C" class="accent-red-500"> 
+                    <span>Cherbourg</span>
+                </label>
+            </div>
+
+            <button type="submit" class="w-full p-3 mt-4 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-xl hover:scale-105 transition transform font-bold shadow-lg">
+                🔍 Predict Survival
+            </button>
+        </form>
+    </div>
+</body>
+</html>
